@@ -20,21 +20,31 @@ const registerUser = asyncHandler(async (req, res) => {
     //get info from request
     const {userName, email, password} = req.body;
     //check if exists
-    const userExists = await User.findOne({email: email})
+    const userExists = await User.findOne({email: email});
 
     if (userExists) {
         res.status(400);
         throw new Error('User already exists');
-    }
+    };
 
+    //create new user if email not exists
     const newUser = await User.create({
         userName,
         email,
         password
     });
 
+    if (newUser) {
+        res.status(201).json({
+            _id: newUser._id,
+            userName: newUser.name,
+            email: newUser.email
+        });
+    } else {
+        res.status(400);
+        throw new Error('Invalid user data');
+    };
 
-    res.status(200).json({ message: 'Register user' })
 });
 
 
