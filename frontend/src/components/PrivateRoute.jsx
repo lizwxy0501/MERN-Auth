@@ -8,8 +8,8 @@ const PrivateRoute = () => {
 
     //check useInfo first, if not login, redrict to login page
 
-    const { useInfo } = useSelector((state) => state.auth);
-    return useInfo ? <Outlet /> : <Navigate to='/login' replace />
+    const { userInfo } = useSelector((state) => state.auth);
+    return userInfo ? <Outlet /> : <Navigate to='/login' replace/>
 
 }
 

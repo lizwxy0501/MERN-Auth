@@ -12,6 +12,8 @@ import Register from './views/Register.jsx'
 import Profile from './views/Profile.jsx'
 import PrivateRoute from './components/PrivateRoute.jsx'
 
+
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
@@ -19,9 +21,14 @@ const router = createBrowserRouter(
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       {/* private route, check useInfo first */}
-      <Route path='' element={<PrivateRoute />}>
+      {/* <Route path='' element={<PrivateRoute />}>
         <Route path='/profile' element={<Profile />} />
+      </Route> */}
+      <Route  path='' element={<PrivateRoute />} >
+        <Route path='/profile' element= {<Profile />}/>
       </Route>
+
+
     </Route>
   )
 )
