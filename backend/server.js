@@ -16,6 +16,12 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
+app.use(cors(
+    {
+        origin:['https://mern-auth-2e1y.onrender.com']
+    }
+))
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
