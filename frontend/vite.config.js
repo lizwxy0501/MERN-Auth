@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://mern-auth-backend-usbb.onrender.com:5000',
+        target: 'https://mern-auth-backend-usbb.onrender.com',
         changeOrigin: true
       }
     }
